@@ -9,7 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 class ChatfuelTest extends TestCase
 {
-    public function sendText() {
+    public function sendText()
+    {
         $chatfuel = new Chatfuel();
         $chatfuel->sendText('Test');
         $test = [
