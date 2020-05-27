@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gingdev\Chatfuel;
+namespace Gingdev;
 
 use Gingdev\Chatfuel;
 use PHPUnit\Framework\TestCase;
