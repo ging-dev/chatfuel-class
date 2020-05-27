@@ -6,5 +6,4 @@ namespace Gingdev;
 
 class Chatfuel
 {
-
 }
