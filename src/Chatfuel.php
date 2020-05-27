@@ -81,7 +81,7 @@ class Chatfuel
     public function sendVideo(string $url)
     {
         if (isURL($url)) {
-            $this->sendAttachment('video', ['url' => $url])
+            $this->sendAttachment('video', ['url' => $url]);
         } else {
             $this->sendText(self::INVALID_URL);
         }
@@ -96,6 +96,16 @@ class Chatfuel
     public function toJson(): string
     {
         return json_encode($this->response);
+    }
+
+    /**
+     * To Array
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return $this->response;
     }
 
     /**
