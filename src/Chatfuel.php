@@ -10,7 +10,7 @@ class Chatfuel
 {
     /** @var array $response */
     protected $response = [];
-    
+
     /**
      * Add text-message to response
      *
