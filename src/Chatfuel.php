@@ -146,9 +146,9 @@ class Chatfuel
      * Check the valid URL
      *
      * @param string $url
-     * @return void
+     * @return mixed
      */
-    protected function isURL(string $url): void
+    protected function isURL(string $url): mixed
     {
         return filter_var($url, FILTER_VALIDATE_URL);
     }
