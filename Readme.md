@@ -1,6 +1,7 @@
 ## Chatfuel class for PHP
 
 [![StyleCI](https://github.styleci.io/repos/267200397/shield?branch=master)](https://github.styleci.io/repos/267200397)
+[![Build Status](https://travis-ci.org/ging-dev/chatfuel-class.svg?branch=master)](https://travis-ci.org/ging-dev/chatfuel-class)
 
 ## Install
     composer require ging-dev/chatfuel
