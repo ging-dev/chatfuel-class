@@ -95,7 +95,7 @@ class Chatfuel
      */
     public function toJson(): string
     {
-        return json_encode($this->response);
+        return json_encode(['messages' => $this->response]);
     }
 
     /**
@@ -105,7 +105,7 @@ class Chatfuel
      */
     public function toArray(): array
     {
-        return $this->response;
+        return ['messages' => $this->response];
     }
 
     /**

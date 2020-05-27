@@ -4,3 +4,18 @@
 
 ## Install
     composer require ging-dev/chatfuel
+## Usage
+```php
+<?php
+
+use Gingdev\Chatfuel;
+
+require 'vendor/autoload.php';
+
+$chatfuel = new Chatfuel();
+
+$chatfuel->sendText('Hello world');
+
+$chatfuel->sendImage('https://domain.com/abc.png');
+
+echo $chatfuel->toJson();
