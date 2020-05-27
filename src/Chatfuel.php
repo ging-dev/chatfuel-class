@@ -89,6 +89,22 @@ class Chatfuel
     }
 
     /**
+     * Send File
+     *
+     * @param string $url
+     * @return $this
+     */
+    public function sendFile(string $url)
+    {
+        if (isURL($url)) {
+            $this->sendAttachment('file', ['url' => $url]);
+        } else {
+            $this->sendText(self::INVALID_URL);
+        }
+        return $this;
+    }
+
+    /**
      * To Json
      *
      * @return string
