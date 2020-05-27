@@ -39,10 +39,10 @@ class Chatfuel
         }
         return $this;
     }
-    
+
     /**
      * Send Image
-     * 
+     *
      * @param string $url
      * @return $this
      */
@@ -55,10 +55,25 @@ class Chatfuel
         }
         return $this;
     }
-    
+
+    /**
+     * Send Audio
+     *
+     * @param string $url
+     * @return $this
+     */
+    public function sendAudio(string $url)
+    {
+       if (isURL($url)) {
+           $this->sendAttachment('audio', ['url' => $url]);
+       } else {
+           $this->sendText(self::INVALID_URL);
+       }
+    }
+
     /**
      * Send Attachment
-     * 
+     *
      * @param string $type
      * @param array $payload
      * return $this
@@ -73,9 +88,10 @@ class Chatfuel
         ];
         return $this;
     }
+
     /**
      * Check the valid URL
-     * 
+     *
      * @param string $url
      * @return boolean
      */
