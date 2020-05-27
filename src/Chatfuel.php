@@ -48,7 +48,7 @@ class Chatfuel
      */
     public function sendImage(string $url)
     {
-        if (isURL($url)) {
+        if ($this->isURL($url)) {
             $this->sendAttachment('image', ['url' => $url]);
         } else {
             $this->sendText(self::INVALID_URL);
@@ -64,7 +64,7 @@ class Chatfuel
      */
     public function sendAudio(string $url)
     {
-        if (isURL($url)) {
+        if ($this->isURL($url)) {
             $this->sendAttachment('audio', ['url' => $url]);
         } else {
             $this->sendText(self::INVALID_URL);
@@ -80,7 +80,7 @@ class Chatfuel
      */
     public function sendVideo(string $url)
     {
-        if (isURL($url)) {
+        if ($this->isURL($url)) {
             $this->sendAttachment('video', ['url' => $url]);
         } else {
             $this->sendText(self::INVALID_URL);
@@ -96,7 +96,7 @@ class Chatfuel
      */
     public function sendFile(string $url)
     {
-        if (isURL($url)) {
+        if ($this->isURL($url)) {
             $this->sendAttachment('file', ['url' => $url]);
         } else {
             $this->sendText(self::INVALID_URL);
@@ -146,9 +146,9 @@ class Chatfuel
      * Check the valid URL
      *
      * @param string $url
-     * @return boolean
+     * @return void
      */
-    protected function isURL(string $url): bool
+    protected function isURL(string $url): void
     {
         return filter_var($url, FILTER_VALIDATE_URL);
     }
