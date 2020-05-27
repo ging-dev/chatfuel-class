@@ -64,11 +64,38 @@ class Chatfuel
      */
     public function sendAudio(string $url)
     {
-       if (isURL($url)) {
-           $this->sendAttachment('audio', ['url' => $url]);
-       } else {
-           $this->sendText(self::INVALID_URL);
-       }
+        if (isURL($url)) {
+            $this->sendAttachment('audio', ['url' => $url]);
+        } else {
+            $this->sendText(self::INVALID_URL);
+        }
+        return $this;
+    }
+
+    /**
+     * Send Video
+     *
+     * @param string $url
+     * @return $this
+     */
+    public function sendVideo(string $url)
+    {
+        if (isURL($url)) {
+            $this->sendAttachment('video', ['url' => $url])
+        } else {
+            $this->sendText(self::INVALID_URL);
+        }
+        return $this;
+    }
+
+    /**
+     * To Json
+     *
+     * @return string
+     */
+    public function toJson(): string
+    {
+        return json_encode($this->response);
     }
 
     /**
