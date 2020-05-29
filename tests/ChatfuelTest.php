@@ -15,7 +15,7 @@ class ChatfuelTest extends TestCase
         $chatfuel->sendText('Test');
         $test = [
             'messages' => [
-                [ 'text' => 'Test' ]
+                ['text' => 'Test']
             ]
         ];
         $this->assertSame($chatfuel->toArray(), $test);

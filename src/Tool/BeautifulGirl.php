@@ -22,9 +22,8 @@ class BeautifulGirl
         $curl->get('https://toithemgai.com/category/gallery/page/' . rand(1, 45) . '/');
         preg_match_all('#(?<=img src=").+?(?=")#', $curl->response, $result);
         $curl->close();
-        $this->result = $result[0] ?? [];
-        unset($result);
-        if (count($this->result)) {
+        if (count($result[0])) {
+            $this->result = $result[0];
             return true;
         }
         return false;
