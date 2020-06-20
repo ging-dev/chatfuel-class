@@ -10,13 +10,16 @@ class Chatfuel
 {
     const INVALID_URL = 'Error: Invalid URL!';
 
-    /** @var array $response */
+    /**
+     * Response variable
+     * @var array
+     */
     protected $response = [];
 
     /**
      * Send Text
      *
-     * @param string|array $messages
+     * @param  string|array $messages
      * @return $this
      */
     public function sendText($messages)
@@ -43,7 +46,7 @@ class Chatfuel
     /**
      * Send Image
      *
-     * @param string $url
+     * @param  string $url
      * @return $this
      */
     public function sendImage(string $url)
@@ -59,7 +62,7 @@ class Chatfuel
     /**
      * Send Audio
      *
-     * @param string $url
+     * @param  string $url
      * @return $this
      */
     public function sendAudio(string $url)
@@ -75,7 +78,7 @@ class Chatfuel
     /**
      * Send Video
      *
-     * @param string $url
+     * @param  string $url
      * @return $this
      */
     public function sendVideo(string $url)
@@ -91,7 +94,7 @@ class Chatfuel
     /**
      * Send File
      *
-     * @param string $url
+     * @param  string $url
      * @return $this
      */
     public function sendFile(string $url)
@@ -127,9 +130,9 @@ class Chatfuel
     /**
      * Send Attachment
      *
-     * @param string $type
-     * @param array $payload
-     * return $this
+     * @param  string $type
+     * @param  array $payload
+     * @return $this
      */
     protected function sendAttachment(string $type, array $payload)
     {
@@ -145,7 +148,7 @@ class Chatfuel
     /**
      * Check the valid URL
      *
-     * @param string $url
+     * @param  string $url
      * @return boolean
      */
     protected function isURL(string $url)
