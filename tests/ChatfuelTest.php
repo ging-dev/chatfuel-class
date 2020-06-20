@@ -19,16 +19,15 @@ class ChatfuelTest extends TestCase
 
     public function testSendText(): void
     {
-        $chatfuel = new Chatfuel();
-        $chatfuel->sendText('Test message');
+        $this->chatfuel->sendText('Test message');
 
-        $this->assertSame($chatfuel->toArray(), [
+        $this->assertSame($this->chatfuel->toArray(), [
             'messages' => [
                 ['text' => 'Test message']
             ]
         ]);
 
-        $chatfuel
+        $this->chatfuel
             ->sendText(['Hello', 'Hi'])
             ->sendText(true)
             ->sendImage('http://localhost/image.png')

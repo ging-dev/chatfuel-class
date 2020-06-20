@@ -1,6 +1,12 @@
 languge: php
 php:
-  - 7.2
+  - 7.4
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+after_script:
+  - vendor/bin/test-reporter
+addons:
+  code_climate:
+    repo_token:
+      secure: "U5N3MZm9J6yAwqbgHeJY9q8uyN01dnmVixuR5FVmH8kVBtSXlXSxAwY7CSgrMyASQ+osjbMz1dZkhXqmDUVyJ6BHNjFk9PNMsblBcvKAQ0qtHbeJIbSuoijABo4b/PVCayVZBtp5Nphm9CN2G6uOJ9RmiZug6wv1L0RespJvq1vT39JypWI5SWGI3N2Qf/bw1obiu9vvlZxfDMtKj1cVFYMRjKgzFiJcTpSn7b2iB7IqfyMUSIBTEsxuZcc7x1ZEhBskprn9iwW3SSlCa6i9WbXEXlti4vrDb0XF6+uKLTLAxaPvNoM0owTEd8cmblbmPsfP4uIHy86hpsFYiRxExKjDNwt+Xm3CvbfjdwrQ8HYY6bdH3Jpjq6nK8/UwxrFlwOY8FPCQWcfHZwacuUCm8kKWf+Jqro82G975aSYZZeINICWaEsNqa7K3rwtolDJG676o2osuIDqMnwBXtGFTXvRa8BzID6JwUEWo6khyD0ud6/uYpiAlNdGprUSJEoZxO3m7QAY5TUTtStG/Q6XpUDG1NHVMZ/WvKRqsI5A4lFOoDmGaxppTfOJ14bKBljhoF/xQCHbQwwti9wJ9ND1V5WkEIMIZn2uMsVAipNggE6GOY7PtLw8XAkI/ybypi1pCVuSWXWW/S4Wu210jkGNnnWGAhpzsu0Ua/1EZTKlyWoU="
