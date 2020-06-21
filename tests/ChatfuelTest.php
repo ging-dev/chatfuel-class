@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Gingdev;
 
-use Gingdev\Chatfuel;
+use Gingdev\{
+    Chatfuel,
+    Tool\Girl
+};
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;
 
@@ -17,8 +20,12 @@ class ChatfuelTest extends TestCase
         $this->chatfuel = new Chatfuel();
     }
 
-    public function testSendText(): void
+    public function testChatfuel(): void
     {
+        /** @var Girl test */
+        $girl = new Girl();
+        $girl->getOne();
+
         $this->chatfuel->sendText('Test message');
 
         $this->assertSame($this->chatfuel->toArray(), [
