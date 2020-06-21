@@ -113,13 +113,9 @@ class Chatfuel
      * @param  bool
      * @return string
      */
-    public function toJson(bool $debug = false): string
+    public function toJson(): string
     {
-        $message = ['messages' => $this->response];
-        if ($debug) {
-            return json_decode($message, JSON_PRETTY_PRINT);
-        }
-        return json_encode($message);
+        return json_encode(['messages' => $this->response]);
     }
 
     /**
