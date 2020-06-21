@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Gingdev;
 
-use Gingdev\{
-    Chatfuel,
-    Tool\Girl
-};
+use Gingdev\Chatfuel;
+use Gingdev\Tool\Girl;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;
 
