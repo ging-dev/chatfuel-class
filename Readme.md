@@ -22,5 +22,5 @@ $chatfuel->sendText('Hello world');
 $chatfuel->sendImage('https://domain.com/abc.png');
 
 header('Content-type: application/json');
-echo json_encode($response->getResponse());
+echo json_encode($chatfuel->getResponse());
 ```

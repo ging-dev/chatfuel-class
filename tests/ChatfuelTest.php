@@ -11,28 +11,24 @@ use InvalidArgumentException;
 
 class ChatfuelTest extends TestCase
 {
-    private $chatfuel;
-
-    protected function setUp(): void
-    {
-        $this->chatfuel = new Chatfuel();
-    }
-
     public function testChatfuel(): void
     {
         /** @var Girl test */
         $girl = new Girl();
         $girl->getOne();
 
-        $this->chatfuel->sendText('Test message');
+        /** @var Chatfuel */
+        $chatfuel = new Chatfuel();
 
-        $this->assertSame($this->chatfuel->getResponse(), [
+        $chatfuel->sendText('Test message');
+
+        $this->assertSame($chatfuel->getResponse(), [
             'messages' => [
                 ['text' => 'Test message']
             ]
         ]);
 
-        $this->chatfuel
+        $chatfuel
             ->sendText(['Hello', 'Hi'])
             ->sendText(true)
             ->sendImage('http://localhost/image.png')
@@ -43,16 +39,5 @@ class ChatfuelTest extends TestCase
             ->sendAudio('Invaild')
             ->sendVideo('Invaild')
             ->sendFile('Invaild');
-    }
-
-    public function testException(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->chatfuel->sendText(null);
-    }
-
-    protected function tearDown(): void
-    {
-        $this->chatfuel = null;
     }
 }

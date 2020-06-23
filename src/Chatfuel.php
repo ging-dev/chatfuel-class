@@ -23,9 +23,6 @@ class Chatfuel
      */
     public function sendText($messages)
     {
-        if (empty($messages)) {
-            throw new InvalidArgumentException('Input must not empty.');
-        }
         switch (gettype($messages)) {
             case 'string':
                 $this->response[] = ['text' => $messages];
@@ -36,7 +33,7 @@ class Chatfuel
                 }
                 break;
             default:
-                $this->response[] = ['text' => 'Error!'];
+                $this->response[] = ['text' => 'Error: Input must be string or array.'];
                 break;
         }
         return $this;
