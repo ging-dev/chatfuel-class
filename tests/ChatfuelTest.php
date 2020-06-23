@@ -26,7 +26,7 @@ class ChatfuelTest extends TestCase
 
         $this->chatfuel->sendText('Test message');
 
-        $this->assertSame($this->chatfuel->toArray(), [
+        $this->assertSame($this->chatfuel->getResponse(), [
             'messages' => [
                 ['text' => 'Test message']
             ]
@@ -42,8 +42,7 @@ class ChatfuelTest extends TestCase
             ->sendImage('Invaild')
             ->sendAudio('Invaild')
             ->sendVideo('Invaild')
-            ->sendFile('Invaild')
-            ->toJson();
+            ->sendFile('Invaild');
     }
 
     public function testException(): void

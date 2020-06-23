@@ -8,7 +8,6 @@ use InvalidArgumentException;
 
 class Chatfuel
 {
-    const INVALID_URL = 'Error: Invalid URL!';
 
     /**
      * Response variable
@@ -51,11 +50,7 @@ class Chatfuel
      */
     public function sendImage(string $url)
     {
-        if ($this->isURL($url)) {
-            $this->sendAttachment('image', ['url' => $url]);
-        } else {
-            $this->sendText(self::INVALID_URL);
-        }
+        $this->sendURL($url, 'image');
         return $this;
     }
 
@@ -67,11 +62,7 @@ class Chatfuel
      */
     public function sendAudio(string $url)
     {
-        if ($this->isURL($url)) {
-            $this->sendAttachment('audio', ['url' => $url]);
-        } else {
-            $this->sendText(self::INVALID_URL);
-        }
+        $this->sendURL($url, 'audio');
         return $this;
     }
 
@@ -83,11 +74,7 @@ class Chatfuel
      */
     public function sendVideo(string $url)
     {
-        if ($this->isURL($url)) {
-            $this->sendAttachment('video', ['url' => $url]);
-        } else {
-            $this->sendText(self::INVALID_URL);
-        }
+        $this->sendURL($url, 'video');
         return $this;
     }
 
@@ -99,31 +86,16 @@ class Chatfuel
      */
     public function sendFile(string $url)
     {
-        if ($this->isURL($url)) {
-            $this->sendAttachment('file', ['url' => $url]);
-        } else {
-            $this->sendText(self::INVALID_URL);
-        }
+        $this->sendURL($url, 'file');
         return $this;
     }
 
     /**
-     * To Json
-     *
-     * @param  bool
-     * @return string
-     */
-    public function toJson(): string
-    {
-        return json_encode(['messages' => $this->response]);
-    }
-
-    /**
-     * To Array
+     * Get Response
      *
      * @return array
      */
-    public function toArray(): array
+    public function getResponse(): array
     {
         return ['messages' => $this->response];
     }
@@ -147,13 +119,18 @@ class Chatfuel
     }
 
     /**
-     * Check the valid URL
+     * Send Link
      *
      * @param  string $url
-     * @return boolean
+     * @param  string $type
+     * @return void
      */
-    protected function isURL(string $url)
+    protected function sendURL(string $url, string $type): void
     {
-        return filter_var($url, FILTER_VALIDATE_URL);
+        if (filter_var($url, FILTER_VALIDATE_URL)) {
+            $this->sendAttachment($type, ['url' => $url]);
+        } else {
+            $this->sendText('Error: Invalid URL!');
+        }
     }
 }
