@@ -8,14 +8,10 @@ use Curl\Curl;
 
 class Girl
 {
-    /**
-     * @var Curl
-     */
+    /** @var Curl */
     private $curl;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     private $total;
 
     public function __construct()
