@@ -6,7 +6,6 @@ namespace Gingdev;
 
 class Chatfuel
 {
-
     /** @var array */
     protected $response = [];
 

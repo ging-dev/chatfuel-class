@@ -10,7 +10,6 @@
 ## Usage
 ```php
 <?php
-
 use Gingdev\Chatfuel;
 
 require 'vendor/autoload.php';
@@ -18,7 +17,6 @@ require 'vendor/autoload.php';
 $chatfuel = new Chatfuel();
 
 $chatfuel->sendText('Hello world');
-
 $chatfuel->sendImage('https://domain.com/abc.png');
 
 header('Content-type: application/json');
